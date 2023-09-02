@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Terminal Login/Signup</title>
+    <style>
+        /* CSS styles for the video background */
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        video {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* CSS styles for the centering container */
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* CSS styles for the terminal */
+        #terminal {
+            background-color: rgba(0, 0, 0, 0.9); /* Transparent dark background color */
+            color: white;
+            border: 2px solid #00ff00; /* Green border to mimic a terminal window */
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            max-width: 80%; /* Adjust the maximum width as needed */
+            font-family: 'Courier New', monospace; /* Use a monospace font for the terminal text */
+            white-space: pre-line; /* Preserve line breaks in the text */
+            overflow-y: auto; /* Add vertical scrollbar when content exceeds the box height */
+        }
+
+        /* Add more styles for the terminal or other elements as needed */
+
+        /* Reset some styles to match dark theme */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style the terminal input field */
+        #input {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        /* Style the terminal prompt symbol */
+        .prompt {
+            color: #00ff00; /* Green color for the prompt symbol */
+        }
+        html{
+  background:#333;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;}
+
+        #bitcoin{
+          padding-top:80px;
+          width:200px;
+          margin:0 auto;
+          display:block;
+          text-align:center;
+          color:#888888;}
+        
+        .path {
+          stroke-dasharray: 2110;
+          stroke-dashoffset: 2110;
+          stroke-width:2;
+          stroke-linecap:round;
+          animation: dash 6s linear infinite;
+          fill-opacity:0;
+          stroke:orange;
+        }
+        
+        @keyframes dash {
+          0% {
+            stroke-dashoffset: 2110;
+            opacity:0;
+            stroke:orange;
+          }
+          15%{
+            opacity:1;
+            stroke:orange;
+          }
+          70%{
+            opacity:1;
+            stroke:orange;
+          }
+          100%{
+            stroke-dashoffset:0;
+            opacity:0;
+            stroke:yellow;
+          }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video container for the background video -->
+    <div id="video-container">
+        <img src="crypto-7.jpg" alt="">
+    </div>
+
+    <!-- Centering container for the terminal -->
+    <div class="center-container">
+        <div id="terminal">
+            <pre id="output"><span class="prompt">></span></pre>
+            <input id="input" type="text" autofocus onkeydown="handleInput(event)">
+        </div>
+    </div>
+    <div id="bitcoin">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="200px" height="200px" viewBox="100 100 400 400" xml:space="preserve">
+          <filter id="dropshadow" height="130%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+        <feOffset dx="0" dy="0" result="offsetblur"/>
+        <feFlood flood-color="red"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+      <feMergeNode/>
+      <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+      </filter>          
+      <path class="path" style="filter:url(#dropshadow)" fill="#000000" d="M446.089,261.45c6.135-41.001-25.084-63.033-67.769-77.735l13.844-55.532l-33.801-8.424l-13.48,54.068
+          c-8.896-2.217-18.015-4.304-27.091-6.371l13.568-54.429l-33.776-8.424l-13.861,55.521c-7.354-1.676-14.575-3.328-21.587-5.073
+          l0.034-0.171l-46.617-11.64l-8.993,36.102c0,0,25.08,5.746,24.549,6.105c13.689,3.42,16.159,12.478,15.75,19.658L208.93,357.23
+          c-1.675,4.158-5.925,10.401-15.494,8.031c0.338,0.485-24.579-6.134-24.579-6.134l-9.631,40.468l36.843,9.188
+          c8.178,2.051,16.209,4.19,24.098,6.217l-13.978,56.17l33.764,8.424l13.852-55.571c9.235,2.499,18.186,4.813,26.948,6.995
+          l-13.802,55.309l33.801,8.424l13.994-56.061c57.648,10.902,100.998,6.502,119.237-45.627c14.705-41.979-0.731-66.193-31.06-81.984
+          C425.008,305.984,441.655,291.455,446.089,261.45z M368.859,369.754c-10.455,41.983-81.128,19.285-104.052,13.589l18.562-74.404
+          C306.28,314.65,379.774,325.975,368.859,369.754z M379.302,260.846c-9.527,38.187-68.358,18.781-87.442,14.023l16.828-67.489
+          C327.767,212.14,389.234,221.02,379.302,260.846z"/>
+                
+      </svg>
+      </div>
+
+    <script>
+        const output = document.getElementById('output');
+        const input = document.getElementById('input');
+        const terminal = document.getElementById('terminal');
+
+        let currentText = '';
+        let commandHistory = [];
+        let historyIndex = 0;
+
+        // User data (for demonstration purposes)
+        const userData = {
+            username: 'user',
+            password: 'password',
+        };
+
+        function typewriter(text, callback) {
+            let index = 0;
+            const speed = 50; // Adjust the typing speed as needed (milliseconds)
+
+            function type() {
+                if (index < text.length) {
+                    currentText += text.charAt(index);
+                    output.innerHTML = `<span class="prompt">></span> ${currentText}`;
+                    index++;
+                    setTimeout(type, speed);
+                } else {
+                    callback();
+                }
+            }
+
+            type();
+        }
+
+        function handleInput(event) {
+            if (event.key === 'Enter') {
+                const command = input.value.trim();
+                commandHistory.push(command);
+                historyIndex = commandHistory.length;
+
+                typewriter(`${command}\n`, () => {
+                    handleCommand(command);
+                });
+
+                input.value = '';
+            } else if (event.key === 'ArrowUp') {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    input.value = commandHistory[historyIndex];
+                }
+            } else if (event.key === 'ArrowDown') {
+                if (historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    input.value = commandHistory[historyIndex];
+                } else {
+                    input.value = '';
+                }
+            }
+        }
+
+        function handleCommand(command) {
+            if (command.toLowerCase() === 'login') {
+                typewriter('Initiating login sequence...\n', () => {
+                    typewriter('Username: ', () => {
+                        input.focus();
+                    });
+                });
+            } else if (command.toLowerCase() === 'signup') {
+                typewriter('Initiating signup sequence...\n', () => {
+                    typewriter('Username: ', () => {
+                        input.focus();
+                    });
+                });
+            } else if (command.toLowerCase() === userData.username) {
+                typewriter('Password: ', () => {
+                    input.focus();
+                });
+            } else if (command === userData.password) {
+                // Successful login
+                typewriter('Login successful. Welcome!\n', () => {
+                    // You can add code here to perform actions after login.
+                });
+            } else {
+                typewriter(`Unknown command: ${command}\n`, () => {
+                    input.focus();
+                });
+            }
+        }
+
+        // Initial message
+        typewriter('Welcome to the Terminal Login/Signup Page\nType "login" or "signup" to choose an option.\n', () => {
+            input.focus();
+        });
+    </script>
+</body>
+</html>

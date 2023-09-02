@@ -1,0 +1,400 @@
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+body {
+    margin: 0;
+    font-family: roboto;
+}
+
+hr {
+    border:none;
+    height: 20px;
+    width: 90%;
+    height: 50px;
+    margin-top: 0;
+    border-bottom: 2px solid cyan;
+    box-shadow: 0 20px 20px -20px aqua;
+    margin: -50px auto 10px; 
+  }
+
+.header {
+    overflow: hidden;
+
+    padding: 7px 10px;
+}
+
+.header a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.header a.logo {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.header a:hover {
+    color: rgb(209, 81, 81);
+    text-decoration: underline;
+    text-underline-position: under;
+    transition: 3s;
+}
+
+.header a.active {
+    color: aqua;
+}
+.header a.active:hover {
+    color: rgb(204, 86, 86);
+    transition: 1s;
+}
+
+.header-right {
+    float: right;
+}
+
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .header-right {
+        float: none;
+    }
+}
+
+.typewrite{
+    overflow:hidden; /* Ensures the content is not revealed until the animation */
+    color: aliceblue;
+    text-align: center;
+    font-family: 'Ubuntu';
+}html {background: #0C0019;}
+.container {
+	display:flex;
+	align-items: center;
+	justify-content: center;
+    size: 300px;
+}
+#redblocks > * {
+    transform: translate3d(160px, -93px, 0);
+    animation: moveblocks 4s 1s ease infinite;
+}
+
+@keyframes moveblocks {
+    0% {
+        transform: translate3d(160px, -93px, 0);
+    }
+    50%,
+    100% {
+        transform: translate(0);
+    }
+}
+
+#firstBlock {
+    transform: translate3d(160px, -93px, 0);
+    animation: firstBlock 4s 1s ease infinite;
+}
+#blockdis {
+    animation: blockdis 4s 1s ease infinite;
+}
+@keyframes blockdis {
+    30% {
+        opacity: 1;
+    }
+    40%, 100% {
+        opacity: 0;
+        transform: translate3d(-160px, 93px, 0);
+    }
+}
+@keyframes firstBlock {
+    0%,
+    15% {
+        opacity: 0;
+    }
+    40%,
+    100% {
+        opacity: 1;
+    }
+}
+
+@for $i from 1 to 5 {
+    #redblocksparticles g:nth-child(#{$i}) polygon {
+        opacity: 0.35;
+        animation: glow 4s 1s ease infinite;
+    }
+}
+@for $i from 1 to 20 {
+    #redblocksparticles g:nth-child(1) g circle:nth-child(#{$i}){
+        animation: dots 4s #{1000+$i*50}ms ease infinite;
+    }
+    #redblocksparticles g:nth-child(2) g circle:nth-child(#{$i}){
+        animation: dots 4s #{1000+$i*50}ms ease infinite;
+    }
+    #redblocksparticles g:nth-child(3) g circle:nth-child(#{$i}){
+        animation: dots 4s #{1000+$i*50}ms ease infinite;
+    }
+    #redblocksparticles g:nth-child(4) g circle:nth-child(#{$i}){
+        animation: dots 4s #{1000+$i*50}ms ease infinite;
+    }
+}
+@keyframes glow {
+    0%,
+    45% {
+        opacity: 0;
+    }
+    60%, 100% {
+        opacity: 0.35;
+    }
+}
+
+@keyframes dots {
+    0%,
+    35% {
+        transform: translate(0);
+        opacity: 0;
+    }
+    60%, 80% {
+        transform: translate(55px, -35px);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(55px, -35px);
+        opacity: 0;
+    }
+}
+
+@for $i from 1 to 22 {
+    #purplebg > :nth-child(#{$i}) {
+        animation: up 2s #{$i* 500}ms ease infinite alternate;
+    }
+}
+
+@keyframes up {
+    to {
+        transform: translate(0, -25px);
+    }
+}
+
+@for $i from 1 to 13 {
+    #bottomparticles > :nth-child(#{$i}){
+        animation: particles 4s #{$i*300}ms ease infinite alternate, p 2s ease infinite alternate;
+    }
+    #bottomparticles2 > :nth-child(#{$i}){
+        animation: particles 4s #{$i*300}ms ease infinite alternate, p 2s ease infinite alternate;
+    }
+    #redglowparticles > :nth-child(#{$i}){
+        animation: particles 4s #{$i*300}ms ease infinite alternate, p 2s ease infinite alternate;
+    }
+
+}
+@keyframes p {
+    85%,
+     100% {
+        opacity: 0;
+    }
+}
+
+@keyframes particles {
+    0%, 100% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translate(10px, 15px);
+    }
+}
+
+.particlespoly {
+    animation: p 2s ease infinite alternate;
+}
+
+@for $i from 1 to 4 {
+    #d-app g:nth-child(#{$i}){
+        animation: updown 2s #{$i*200}ms ease-in-out infinite alternate;
+    }
+}
+@for $i from 1 to 4 {
+    #d-apps2 g:nth-child(#{$i}){
+        animation: updown 2s #{$i*200}ms ease-in-out infinite alternate;
+    }
+}
+@for $i from 1 to 20 {
+    #d-apps2wrapper g:nth-child(3) g > circle:nth-child(#{$i}){
+        animation: updown 2s #{$i*50}ms ease infinite alternate;
+    }
+}
+@for $i from 1 to 20 {
+    #d-appswrapper g:nth-child(2) g > circle:nth-child(#{$i}){
+        animation: updown 2s #{$i*50}ms ease infinite alternate;
+    }
+}
+
+
+@keyframes updown {
+    100% {
+        transform: translate(0, -20px);
+    }
+}
+
+#Layer_1 > g:nth-child(2) > g:nth-child(18) > g:nth-child(12) {
+    animation: arrows 1s ease-in-out infinite alternate, p 2s ease infinite alternate;
+}
+@keyframes arrows {
+    to {
+        transform: translate(25px, 25px);
+    }
+}
+
+#Layer_1 > g:nth-child(2) > g:nth-child(17) > g:nth-child(13) {
+    animation: arrows2 1s ease-in-out infinite alternate, p 2s ease infinite alternate;
+}
+@keyframes arrows2 {
+    to {
+        transform: translate(-25px, -25px);
+    }
+}
+
+#Layer_1 > g:nth-child(2) > g:nth-child(17) > g:nth-child(12) {
+    animation: arrows 1s ease-in-out infinite alternate, p 2s ease infinite alternate;
+}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+
+.logo-size {
+  position: relative;
+  width: 30px;
+}
+
+.price-container {
+  width: 95vw;
+  position: relative;
+  color: white;
+  left: 1.5vw;
+  top: 4%;
+  overflow: hidden;
+}
+
+.price-box {
+  display: sticky;
+  position: relative;
+  width: auto;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 27rem;
+  animation: scrolling 30s linear infinite;
+}
+
+@keyframes scrolling {
+  from {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  to {
+    -moz-transform: translateX(120%);
+    -webkit-transform: translateX(120%);
+    transform: translateX(120%);
+  }
+}
+
+.negative-price {
+  color: red;
+}
+.positive-price {
+  color: green;
+}
+
+.currency-id {
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  font-family: "Montserrat";
+}
+.price-styling {
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  z-index: 2;
+  font-family: "Montserrat";
+}
+
+.box-styling {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0rem;
+}
+
+.inner-box-styling {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0rem;
+
+}
+
+.change-styling {
+  font-size: 2rem;
+  z-index: 2;
+  font-family: "Montserrat";
+}
+.fadein {
+    opacity: 0;
+    transition: all 1.5s;
+    transform: translate(0, 100px);
+  }
+  
+  .fadein.visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  html{
+    background:#333;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;}
+  
+  #bitcoin{
+    padding-top:80px;
+    width:200px;
+    margin:0 auto;
+    display:block;
+    text-align:center;
+    color:#888888;}
+  
+  .path {
+    stroke-dasharray: 2110;
+    stroke-dashoffset: 2110;
+    stroke-width:2;
+    stroke-linecap:round;
+    animation: dash 6s linear infinite;
+    fill-opacity:0;
+    stroke:orange;
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 2110;
+      opacity:0;
+      stroke:orange;
+    }
+    15%{
+      opacity:1;
+      stroke:orange;
+    }
+    70%{
+      opacity:1;
+      stroke:orange;
+    }
+    100%{
+      stroke-dashoffset:0;
+      opacity:0;
+      stroke:yellow;
+    }
+  }
